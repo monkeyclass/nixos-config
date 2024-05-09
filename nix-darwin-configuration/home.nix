@@ -2,9 +2,6 @@
 
 { config, pkgs, lib, home-manager, ... }:
 
-let
-  user = "oliver";
-in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -55,16 +52,6 @@ in
     "Library/Preferences/Nextcloud/nextcloud.cfg".source = ./config-files/nextcloud.cfg;
   };
 
-  # You can also manage environment variables but you will have to manually
-  # source
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/davish/etc/profile.d/hm-session-vars.sh
-  #
-  # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
   };

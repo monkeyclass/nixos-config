@@ -1,10 +1,6 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  user = "oliver";
-in 
 {
-  users.users.${user}.home = "/Users/${user}";
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages =

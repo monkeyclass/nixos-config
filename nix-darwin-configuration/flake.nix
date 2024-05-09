@@ -3,16 +3,17 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Unstable Nix Packages
+    nixos-hardware.url = "github:nixos/nixos-hardware/master"; # Hardware Specific Configurations
 
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    darwin.url = "github:LnL7/nix-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 
-    # Optional: Declarative tap management
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -32,18 +33,22 @@
 
   };
 
-  outputs = inputs@{ self, nix-darwin, home-manager, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, ... }:
+  outputs = inputs@{ self, darwin, home-manager, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, ... }:
   let
-    user = "oliver";
-    hostname = "Olivers-MacBook-Air";
+    vars = {
+      user = "oliver";
+      hostname = "Olivers-MacBook-Air";
+      system = "aarch64-darwin";
+    };
   in 
   {
     darwinConfigurations = {
-      "${hostname}" = nix-darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
+      "${vars.hostname}" = darwin.lib.darwinSystem {
+        system = "${vars.system}";
         modules = [
           ./darwin.nix
           {
+            users.users.${vars.user}.home = "/Users/${vars.user}";
             nixpkgs.overlays = [
               inputs.nur.overlay
             ];
@@ -52,7 +57,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./home.nix;
+            home-manager.users.${vars.user} = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
@@ -67,7 +72,7 @@
               enableRosetta = true;
 
               # User owning the Homebrew prefix
-              user = "oliver";
+              user = "${vars.user}";
 
               # Optional: Declarative tap management
               taps = {
