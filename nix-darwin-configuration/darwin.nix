@@ -49,9 +49,9 @@
       autohide =true ;
       show-recents = false;
       mru-spaces = false;
-      tilesize = 64;
+      tilesize = 50;
       magnification = true;
-      largesize = 70;
+      largesize = 55;
       persistent-apps = [
         "/System/Applications/Launchpad.app/"
         "/Applications/Firefox.app"
