@@ -5,7 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
-      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.gimp
+      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
     ];
 
   homebrew = {
@@ -15,7 +15,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt"
+      "firefox" "nextcloud" "veracrypt" "gimp" "signal"
     ];
   };
   # Auto upgrade nix package and the daemon service.
