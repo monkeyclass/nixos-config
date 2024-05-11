@@ -59,7 +59,7 @@
         "${pkgs.vscodium}/Applications/VSCodium.app"
         "${pkgs.joplin-desktop}/Applications/Joplin.app"
         "/Applications/Signal.app"
-        "${pkgs.joplin-desktop}/Applications/Element.app"
+        "${pkgs.element-desktop}/Applications/Element.app"
         "/System/Applications/Messages.app/"
         "/System/Applications/Facetime.app/"
       ];
