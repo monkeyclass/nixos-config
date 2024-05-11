@@ -5,7 +5,7 @@
   # $ nix-env -qaP | grep wget
   environment.systemPackages =
     [
-      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop
+      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.gimp
     ];
 
   homebrew = {
@@ -15,7 +15,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud"
+      "firefox" "nextcloud" "veracrypt"
     ];
   };
   # Auto upgrade nix package and the daemon service.
@@ -46,8 +46,12 @@
 
   system.defaults = {
     dock = {
-      autohide =true;
+      autohide =true ;
+      show-recents = false;
       mru-spaces = false;
+      tilesize = 64;
+      magnification = true;
+      largesize = 70;
       persistent-apps = [
         "/System/Applications/Launchpad.app/"
         "/Applications/Firefox.app"
