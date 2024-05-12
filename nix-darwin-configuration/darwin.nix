@@ -6,6 +6,7 @@
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
+      pkgs.spotify
     ];
 
   homebrew = {
@@ -15,7 +16,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt" "gimp" "signal"
+      "firefox" "nextcloud" "veracrypt" "gimp" "signal" "libreoffice"
     ];
   };
   # Auto upgrade nix package and the daemon service.
