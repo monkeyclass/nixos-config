@@ -3,6 +3,10 @@
 {
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+  system.activationScripts.postUserActivation.text = ''
+  # Following line should allow us to avoid a logout/login cycle
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
@@ -64,7 +68,14 @@
         "${pkgs.element-desktop}/Applications/Element.app"
         "/System/Applications/Messages.app/"
         "/System/Applications/Facetime.app/"
+        "/System/Applications/Mail.app/"
+        "${pkgs.spotify}/Applications/Spotify.app"
       ];
+    };
+    CustomUserPreferences = {
+      NSGlobalDomain = {
+        "com.apple.swipescrolldirection" = false; 
+      };
     };
     finder.AppleShowAllExtensions = true;
     finder.AppleShowAllFiles = true;
