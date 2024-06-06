@@ -49,7 +49,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    "Library/Preferences/Nextcloud/nextcloud.cfg".source = ./config-files/nextcloud.cfg;
+    #"Library/Preferences/Nextcloud/nextcloud.cfg".source = ./config-files/nextcloud.cfg;
   };
 
   home.sessionVariables = {
@@ -103,7 +103,7 @@
           ublock-origin
           bitwarden
           privacy-badger
-          darkreader
+          multi-account-containers
         ];
       };
     };
