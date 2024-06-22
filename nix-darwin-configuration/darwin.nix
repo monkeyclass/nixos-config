@@ -10,7 +10,7 @@
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
-      pkgs.spotify
+      pkgs.spotify pkgs.wireguard-go
     ];
 
   homebrew = {
