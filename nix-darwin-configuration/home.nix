@@ -49,63 +49,113 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    #"Library/Preferences/Nextcloud/nextcloud.cfg".source = ./config-files/nextcloud.cfg;
+    #"Library/Preferences/Nextcloud/nextcloud.cfg".source = ./config/nextcloud.cfg;
   };
 
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
+  programs = {
+    home-manager.enable = true;
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+    zsh = {
+      enable = true;
+      syntaxHighlighting.enable = true;
+      autosuggestion.enable = true;
+      enableCompletion = true;
+      plugins = [
+        {
+            name = "powerlevel10k";
+            src = pkgs.zsh-powerlevel10k;
+            file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+            name = "powerlevel10k-config";
+            src = lib.cleanSource ./p10k;
+            file = "p10k.zsh";
+        }
+      ];
+      initExtraFirst = ''
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+        # Define variables for directories
+        export PATH=$HOME/.local/share/bin:$PATH
 
-  programs.firefox = {
-    enable = true;
-    package = null;
-    profiles = {
-      home = {
-        id = 0;
-        name = "default";
-        isDefault = true;
-        settings = {
-          "signon.rememberSignons" = false;
-          "widget.disable-workspace-management" = true;
-          "browser.aboutConfig.showWarning" = false;
-          "browser.compactmode.show" = true;
-        };
-        search = {
-          force = true;
-          default = "DuckDuckGo";
-          order = [ "DuckDuckGo" "Google" ];
-          engines = {
-            "Nix Packages" = {
-              urls = [{
-                template = "https://search.nixos.org/packages";
-                params = [
-                  { name = "type"; value = "packages"; }
-                  { name = "query"; value = "{searchTerms}"; }
-                ];
-              }];
-              icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ "@np" ];
-            };
-            "NixOS Wiki" = {
-              urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
-              iconUpdateURL = "https://nixos.wiki/favicon.png";
-              updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = [ "@nw" ];
-            };
-            "Bing".metaData.hidden = true;
-            "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+        # Remove history data we don't want to see
+        export HISTIGNORE="pwd:ls:cd"
+
+        # Ripgrep alias
+        alias search='rg -p --glob "!node_modules/*" --glob "!vendor/*" "$@"'
+
+        # Laravel Artisan
+        alias art='php artisan'
+
+        # Use difftastic, syntax-aware diffing
+        alias diff=difft
+
+        # Always color ls and group directories
+        alias ls='ls --color=auto'
+      '';
+    };
+    firefox = {
+      enable = true;
+      package = null;
+      profiles = {
+        home = {
+          id = 0;
+          name = "default";
+          isDefault = true;
+          settings = {
+            "signon.rememberSignons" = false;
+            "widget.disable-workspace-management" = true;
+            "browser.aboutConfig.showWarning" = false;
+            "browser.compactmode.show" = true;
           };
+          search = {
+            force = true;
+            default = "DuckDuckGo";
+            order = [ "DuckDuckGo" "Google" ];
+            engines = {
+              "Nix Packages" = {
+                urls = [{
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    { name = "type"; value = "packages"; }
+                    { name = "query"; value = "{searchTerms}"; }
+                  ];
+                }];
+                icon = "''${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+              "NixOS Wiki" = {
+                urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+                iconUpdateURL = "https://nixos.wiki/favicon.png";
+                updateInterval = 24 * 60 * 60 * 1000; # every day
+                definedAliases = [ "@nw" ];
+              };
+              "Bing".metaData.hidden = true;
+              "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+            };
+          };
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            bitwarden
+            privacy-badger
+            multi-account-containers
+          ];
         };
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          ublock-origin
-          bitwarden
-          privacy-badger
-          multi-account-containers
-        ];
       };
     };
   };
+
+
+
+
 }

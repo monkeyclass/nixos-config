@@ -7,6 +7,8 @@
   # Following line should allow us to avoid a logout/login cycle
   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
+
+  
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
@@ -20,7 +22,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice"
+      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer"
     ];
   };
   # Auto upgrade nix package and the daemon service.
