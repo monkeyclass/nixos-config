@@ -12,7 +12,7 @@
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.fish pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
-      pkgs.wireguard-tools pkgs.spotify
+      pkgs.wireguard-tools pkgs.spotify pkgs.iterm2
     ];
 
   homebrew = {
@@ -63,7 +63,7 @@
       persistent-apps = [
         "/System/Applications/Launchpad.app/"
         "/Applications/Firefox.app"
-        "/System/Applications/Utilities/Terminal.app"
+        "${pkgs.iterm2}/Applications/iTerm2.app"
         "${pkgs.vscodium}/Applications/VSCodium.app"
         "${pkgs.joplin-desktop}/Applications/Joplin.app"
         "/Applications/Signal.app"

@@ -67,6 +67,15 @@
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
+      ohMyZsh = {
+         enable = true;
+         theme = "robbyrussell";
+         plugins = [
+           "git"
+           "history"
+           "macos"
+         ];
+      };
       plugins = [
         {
             name = "powerlevel10k";
