@@ -68,13 +68,14 @@
       autosuggestion.enable = true;
       enableCompletion = true;
       oh-my-zsh = {
-         enable = true;
-         theme = "robbyrussell";
-         plugins = [
-           "git"
-           "history"
-           "macos"
-           "thefuck"
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [
+          # https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+          "git"
+          "history"
+          "macos"
+          "thefuck"
          ];
       };
       plugins = [
