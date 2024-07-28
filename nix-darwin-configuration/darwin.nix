@@ -13,7 +13,6 @@
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.qrencode pkgs.element-desktop
       pkgs.wireguard-tools pkgs.spotify pkgs.iterm2 pkgs.thefuck pkgs.duf pkgs.micro
-      pkgs.tor-browser
     ];
 
   homebrew = {
@@ -23,7 +22,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer" "joplin"
+      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer" "joplin" "tor-browser"
     ];
   };
   # Auto upgrade nix package and the daemon service.
