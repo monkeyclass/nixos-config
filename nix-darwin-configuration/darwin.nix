@@ -62,6 +62,7 @@
       largesize = 55;
       persistent-apps = [
         "/System/Applications/Launchpad.app/"
+        "/Applications/Tor Browser.app"
         "/Applications/Firefox.app"
         "${pkgs.iterm2}/Applications/iTerm2.app"
         "${pkgs.vscodium}/Applications/VSCodium.app"
