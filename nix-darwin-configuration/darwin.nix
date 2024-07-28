@@ -11,8 +11,9 @@
   
   environment.systemPackages =
     [
-      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.joplin-desktop pkgs.qrencode pkgs.element-desktop
-      pkgs.wireguard-tools pkgs.spotify pkgs.iterm2 pkgs.thefuck pkgs.duf
+      pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.qrencode pkgs.element-desktop
+      pkgs.wireguard-tools pkgs.spotify pkgs.iterm2 pkgs.thefuck pkgs.duf pkgs.micro
+      pkgs.tor-browser
     ];
 
   homebrew = {
@@ -22,7 +23,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer"
+      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer" "joplin"
     ];
   };
   # Auto upgrade nix package and the daemon service.
@@ -65,7 +66,7 @@
         "/Applications/Firefox.app"
         "${pkgs.iterm2}/Applications/iTerm2.app"
         "${pkgs.vscodium}/Applications/VSCodium.app"
-        "${pkgs.joplin-desktop}/Applications/Joplin.app"
+        "/Applications/Joplin.app"
         "/Applications/Signal.app"
         "${pkgs.element-desktop}/Applications/Element.app"
         "/System/Applications/Messages.app/"
