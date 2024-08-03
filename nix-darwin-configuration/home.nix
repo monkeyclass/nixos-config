@@ -157,6 +157,7 @@
             bitwarden
             privacy-badger
             multi-account-containers
+            alby
           ];
         };
       };
