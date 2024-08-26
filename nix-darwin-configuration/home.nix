@@ -157,7 +157,18 @@
             bitwarden
             privacy-badger
             multi-account-containers
-            alby
+          ];
+          bookmarks = [
+            {
+              name = "toolbar";
+              toolbar = true;
+              bookmarks = [
+                {
+                  name = "CamelCamelCamel";
+                  url = "https://de.camelcamelcamel.com/";
+                }
+              ];
+            }
           ];
         };
       };

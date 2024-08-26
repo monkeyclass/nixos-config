@@ -12,7 +12,7 @@
   environment.systemPackages =
     [
       pkgs.vim pkgs.vscodium pkgs.git pkgs.legendary-gl pkgs.qrencode pkgs.element-desktop
-      pkgs.wireguard-tools pkgs.spotify pkgs.iterm2 pkgs.thefuck pkgs.duf pkgs.micro
+      pkgs.wireguard-tools pkgs.spotify pkgs.iterm2 pkgs.thefuck pkgs.duf pkgs.micro pkgs.pipx
     ];
 
   homebrew = {
