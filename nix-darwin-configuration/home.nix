@@ -73,6 +73,7 @@
           "history"
           "macos"
           "thefuck"
+          "wd"
          ];
       };
       plugins = [
