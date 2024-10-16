@@ -79,6 +79,7 @@
                 "homebrew/homebrew-core" = homebrew-core;
                 "homebrew/homebrew-cask" = homebrew-cask;
                 "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+                "macos-fuse-t/homebrew-cask" = inputs.homebrew-cask;
               };
 
               # Optional: Enable fully-declarative tap management

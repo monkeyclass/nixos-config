@@ -22,7 +22,7 @@
     taps = [];
     brews = [];
     casks = [
-      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer" "joplin" "tor-browser"
+      "firefox" "nextcloud" "veracrypt" "signal" "libreoffice" "teamviewer" "joplin" "tor-browser" "fuse-t"
     ];
   };
   # Auto upgrade nix package and the daemon service.
