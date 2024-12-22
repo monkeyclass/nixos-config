@@ -34,6 +34,8 @@
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";
   
+  # optimise storage
+  nix.optimise.automatic = true;
   # intel binaries
   # remember to manually run softwareupdate --install-rosetta --agree-to-license first
   nix.extraOptions = ''
