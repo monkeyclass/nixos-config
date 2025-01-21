@@ -24,7 +24,8 @@
     brews = [];
     casks = [
       "firefox" "nextcloud" "veracrypt" "signal" "libreoffice"
-      "teamviewer" "joplin" "tor-browser" "fuse-t"
+      "teamviewer" "joplin" "tor-browser" "fuse-t" "balenaetcher"
+      "db-browser-for-sqlite"
     ];
   };
   # Auto upgrade nix package and the daemon service.
