@@ -168,6 +168,30 @@
                   name = "CamelCamelCamel";
                   url = "https://de.camelcamelcamel.com/";
                 }
+                {
+                  name = "DuckDuckGo";
+                  url = "https://duckduckgo.com/";
+                }
+                {
+                  name = "NixOS Wiki";
+                  url = "https://nixos.wiki/";
+                }
+                {
+                  name = "Nix Packages";
+                  url = "https://search.nixos.org/packages";
+                }
+                {
+                  name = "NixOS Search";
+                  url = "https://search.nixos.org/";
+                }
+                {
+                  name = "Go European";
+                  url = "https://goeuropean.org/";
+                }
+                {
+                  name = "European Alternatives";
+                  url = "https://european-alternatives.eu//";
+                }
               ];
             }
           ];
