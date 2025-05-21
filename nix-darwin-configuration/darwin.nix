@@ -25,7 +25,7 @@
     casks = [
       "firefox" "nextcloud" "veracrypt" "signal" "libreoffice"
       "teamviewer" "joplin" "tor-browser" "fuse-t" "balenaetcher"
-      "db-browser-for-sqlite"
+      "db-browser-for-sqlite" "zen-browser"
     ];
   };
   # Auto upgrade nix package and the daemon service.
